@@ -1,8 +1,5 @@
 %% VS-050(DENSO)との接続
 % Create CaoEngine object
-clc
-clear
-
 cao = actxserver('CAO.CaoEngine');
 
 % Get Workespaces object
