@@ -46,5 +46,5 @@ R_late=1.33*Belt_Speed;
 RX_a=0.6/100;
 RX_b=-RX_a*370;
 
-% VGG16_Loop_2;
+VGG16_Loop_2;
 % VGG16_DataCollection;
