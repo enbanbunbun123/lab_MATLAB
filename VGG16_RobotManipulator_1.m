@@ -28,7 +28,7 @@ caoExt = ctrl.AddExtension('Hand0');
 % hand
 caoExt.Execute('Motor', 1);
 
-% caoExt.Execute('Unchuck',2);
+caoExt.Execute('Unchuck',2);
 
 State = caoExt.Execute('get_BusyState');
 while State~=0
