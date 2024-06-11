@@ -1,17 +1,22 @@
 %% 物体検出器及び物体位置特定プログラム
+
 %% 初期化
 clear;
 close all;
 clc;
+
 % %% カメラのキャリブレーションと座標設定
-% CameraCalibration_VGG16;
-% close 1;
-% close 2;
+CameraCalibration_VGG16;
+close 1;
+close 2;
+
 %% ロボットマニピュレータとの接続と動作確認
 VGG16_RobotManipulator_1;
+
 %% 検出器をロード
 % load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\1_net\net_9\net_9_a_rgb750_320240_3.mat','detector');
 load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\高橋_MATLAB\転移学習_VGG16\検出器\net_9_a_rgb750_320240_3.mat','detector');
+
 %VGG16の転移学習モデルをロード(5種類学習モデル)
 % load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\高橋_MATLAB\転移学習_VGG16\VGG16Transfer_4.mat', 'net');
 
