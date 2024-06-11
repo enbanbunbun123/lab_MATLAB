@@ -1,3 +1,5 @@
+%webカメラを通して学習用の画像の撮影を行うプログラム
+
 % close all;
 clear cam;
 clc;

@@ -1,7 +1,4 @@
-%% 初期化
-% clear;
-% close all;
-% clc;
+% 学習モデルを名前をつけて保存するプログラム
 
 %% 学習データの保存
 %VGG16Transfer = trainNetwork('myNet',layers,opts);
