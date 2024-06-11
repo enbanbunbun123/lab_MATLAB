@@ -54,7 +54,6 @@ while(1)
                  ixx = 1;                 
      for i=1:size(score)
          a=bboxes(i,1)+(bboxes(i,3)/2);
-%          b=bboxes(i,2)+(bboxes(i,4)/2);
          if score(i)>=TVal && a>30 && a<270 
              sscore(ixx) = score(i);
              bbox(ixx,:) = bboxes(i,:);
@@ -63,7 +62,6 @@ while(1)
              box_y(ixx) = bbox(ixx,2)+(bbox(ixx,4)/2);
              box_Y(ixx) = box_y(ixx)-100;
              box_width(ixx) = bbox(ixx,3); 
-%              ixx = ixx+1;
 
 %              cropsize = bbox(1,[1:4]); %[画像左上のx座標、画像左上のｙ座標、トリミング画像の横幅、トリミング画像の縦幅]
              bbox_X = bbox(ixx,1)-40;%トリミング画像の左上x座標
@@ -73,18 +71,12 @@ while(1)
              cropsize = [bbox_X bbox_Y bbox_Beside bbox_Vertical];%トリミングサイズの補正
 
              CropImage = imcrop(im,cropsize);%入力の画像をcropsizeでトリミング
-%              subplot(1,2,2);            
-%              imshow(CropImage);
-%              title('Cropped Image');
              im_Resize=imresize(CropImage,[224 224]);%トリミング画像のリサイズ
              [VGG16_label,VGG16_score] = trainedNetwork_1.classify(im_Resize);  %VGG16の転移学習モデルで画像の分類  
 
              VGG16_Score(ixx) = cat(2,max(VGG16_score));   %検討
-%              imshow(im_Resize);
 
              VGG16_label_str{ixx} = char(cellstr(VGG16_label));%セル行列への変換 
-%              VGG16_Score = horzcat(VGG16_Score);
-%              disp([VGG16_label_str,VGG16_Score])%信頼度、分類結果の表示
              disp([VGG16_label_str,VGG16_Score,int2str(ixx)]);
              
 
@@ -92,7 +84,6 @@ while(1)
                  fx1=figure(1);
                  str1=append("Unknown_1209_", int2str(j),".jpg");
                  img1 = im_Resize;
-%                  image(img1);
                  imwrite(img1,str1);
                  j=j+1; 
              end
@@ -112,22 +103,14 @@ while(1)
             image(out);
             imwrite(out,str2);
 
-            
-%             Box_x = box_x(:,ixx);
-%             Box_y = box_y(:,ixx);
-%             Box_width = box_width(:,ixx);
             all_data = horzcat(VGG16_label_str.',num2cell(VGG16_Score.'),num2cell(box_x.'),num2cell(box_Y.'),num2cell(box_width.'));
-%             all_data = horzcat(VGG16_label_str.',num2cell(sscore.'),num2cell(box_x.'),num2cell(box_y.'),num2cell(box_width.'));
             all_data = sortrows(all_data,4,'descend');
-%             hold on;
 
 
           
             for i=1:size(VGG16_label_str,2)
                 G(i,:) = [str2double(string(all_data(i,3))) ...
                 str2double(string(all_data(i,4)))];
-%                plot(G(i,1),G(i,2),'*') 
-%                plot(320+G(i,1),G(i,2),'*')
                 % ワールド座標系への変換
                 imagePointsObject = [2*G(i,1) 2*G(i,2)]; 
                 % Get the world coordinates of the corners
@@ -141,7 +124,6 @@ while(1)
                 % 小型ロボットマニピュレータの座標系への変換
                 X_0 = -worldPoints3DObject(i,1)*X_M + X_D;%補正値あり
                 Y_0 =  worldPoints3DObject(i,2)*Y_M + Y_D;%補正値あり
-%                 disp(all_data(1,5));
                 Time_A=toc(time_detect);
                 Position(i,:) = [all_data(i,1) X_0 Y_0 Time_A all_data(i,5)];
                 Position_Time(i) = tic;
@@ -271,30 +253,12 @@ while(1)
 
            end
                  
-%           Detect_List(1,:)=[];
-%            xi=xi-1;
               yi=yi+1;
       elseif Y_1>=100
-%           Detect_List(1,:)=[];
-%            xi=xi-1;
                 yi=yi+1;
       end
-      
-             
-              
-%              figure(fx)
-%              imshow(im)
-      
-%   else
-   
-%          title('Object Detected')
-%          hold off
   end
-
   
-  
-%      figure(fx)
-%      imshow(im)  
   pause(0.1);      
 
 end
