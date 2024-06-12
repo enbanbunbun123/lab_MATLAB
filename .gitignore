@@ -6,11 +6,4 @@ params_2022_09_22__14_18_40.mat
 VGG16Transfer6_1.mat
 
 # 画像ファイル等を追跡の対象外に
-Test_2.jpg
-Test_34.jpg
-Unknown_1209_0.jpg
-Unknown_1209_1.jpg
-Unknown_1209_2.jpg
-VGG16_DataCollection.asv
-VGG16_Loop_2.asv
 VGG16_Transfer_6types.mlx
