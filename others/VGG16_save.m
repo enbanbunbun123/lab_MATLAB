@@ -1,4 +1,7 @@
 % 学習モデルを名前をつけて保存するプログラム
+% 転移学習に関しては、matlab内のdeep network designerを使用した
+% 学習完了後、変数内に学習モデルが作成されるので、任意の名前で保存する
+% https://jp.mathworks.com/help/deeplearning/gs/get-started-with-deep-network-designer.html
 
 %% 学習データの保存
 %VGG16Transfer = trainNetwork('myNet',layers,opts);
