@@ -72,18 +72,3 @@ hold off
 cam = webcam;
 cam.Resolution = '320x240';
 fx = figure(3);
-
-% %% 不要な変数を消去
-% clear boardSize;
-% clear estimationErrors;
-% clear imageFileNames;
-% clear imagePoints;
-% clear imagesUsed;
-% clear imOrig;
-% clear imUndistorted;
-% clear mrows;
-% clear ncols;
-%  clear originalImage;
-% clear projectedPoints;
-% clear squareSize;
-% clear zCoord;
