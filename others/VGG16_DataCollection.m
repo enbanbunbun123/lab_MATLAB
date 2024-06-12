@@ -1,4 +1,7 @@
-%転移学習に用いる学習データセット作成のためのプログラム
+% 転移学習に用いる学習データセット作成のためのプログラム
+% 信頼度が70%以下の場合に画像を保存する
+% ただし、想定よりも画像の収集ができない時には、信頼度の値を変更して画像を収集する
+
 
 %% loop 
 % あらかじめ決められた分類箱の座標を定義(小型ロボットマニピュレータの座標系)
@@ -81,7 +84,7 @@ while(1)
 
              VGG16_label_str= cellstr(VGG16_label);%セル行列への変換              
 
-%              if VGG16_Score <= 0.70 %scoreが70%以下だった場合、unknownとして画像を保存
+             if VGG16_Score <= 0.70 %scoreが70%以下だった場合、unknownとして画像を保存
                  fx1=figure(1);
                  str1=append("UnKnown_1129_9_", int2str(j),".jpg");
                  img1 = im_Resize;
@@ -89,7 +92,7 @@ while(1)
                  imwrite(img1,str1);
                   disp([VGG16_label_str,VGG16_Score,int2str(j)])%信頼度、分類結果の表示
                  j=j+1; 
-%              end
+             end
          end
      end  
              end
