@@ -17,11 +17,7 @@ VGG16_RobotManipulator_1;
 % load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\1_net\net_9\net_9_a_rgb750_320240_3.mat','detector');
 load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\高橋_MATLAB\転移学習_VGG16\検出器\net_9_a_rgb750_320240_3.mat','detector');
 
-%VGG16の転移学習モデルをロード(5種類学習モデル)
-% load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\高橋_MATLAB\転移学習_VGG16\VGG16Transfer_4.mat', 'net');
-
 %VGG16の転移学習モデルをロード(6種類学習モデル)
-% load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\高橋_MATLAB\転移学習_VGG16\VGG16Transfer6_3.mat', 'trainedNetwork_1');
 load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\高橋_MATLAB\転移学習_VGG16\VGG16Transfer6_proto3_3_crop.mat', 'trainedNetwork_1');
 
 %% 検出とピックアップ
@@ -44,7 +40,7 @@ class_label ={'PCB','IC','Connector','Condenser','Metal','Coil',};
 Belt_Speed=1000/64.98;  %%(mm/s)
 PickT=10;
 Length=200; %(mm)
-% ロボットアームの動作による遅延
+% ロボットアームの動作による遅延考慮
 % Y軸
 R_late=1.33*Belt_Speed;
 % X軸
