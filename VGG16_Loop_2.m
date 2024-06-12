@@ -78,11 +78,13 @@ while(1)
 
              VGG16_label_str{ixx} = char(cellstr(VGG16_label));%セル行列への変換 
              disp([VGG16_label_str,VGG16_Score,int2str(ixx)]);
-             
+            
+            %現在の日付でunknown画像を保存
+            currentDate = datestr(now, 'yyyymmdd'); % 'yyyymmdd'形式で日付を取得
 
              if VGG16_Score <= 0.70 %scoreが70%以下だった場合、unknownとして画像を保存
                  fx1=figure(1);
-                 str1=append("Unknown_1209_", int2str(j),".jpg");
+                 str1=append("Unknown_",currentDate,"_",int2str(j),".jpg");
                  img1 = im_Resize;
                  imwrite(img1,str1);
                  j=j+1; 
@@ -258,7 +260,7 @@ while(1)
                 yi=yi+1;
       end
   end
-  
+
   pause(0.1);      
 
 end
