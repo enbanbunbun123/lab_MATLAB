@@ -6,12 +6,12 @@ close all;
 clc;
 
 % %% カメラのキャリブレーションと座標設定
-CameraCalibration_VGG16;
+VGG16_CameraCalibration;
 close 1;
 close 2;
 
 %% ロボットマニピュレータとの接続と動作確認
-VGG16_RobotManipulator_1;
+VGG16_RobotManipulator;
 
 %% 検出器をロード
 % load('C:\研究(ロボットマニピュレータ)\MATLAB_研究\1_net\net_9\net_9_a_rgb750_320240_3.mat','detector');
@@ -47,7 +47,7 @@ R_late=1.33*Belt_Speed;
 RX_a=0.6/100;
 RX_b=-RX_a*370;
 
-VGG16_Loop_2;
+VGG16_Loop;
 
 %　転移学習の学習用データ取得の際には、以下の関数をコメント解除し実行する
 % VGG16_DataCollection;

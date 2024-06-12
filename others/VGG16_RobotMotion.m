@@ -7,7 +7,7 @@ close all;
 clc;
 
 %%
-VGG16_RobotManipulator_1;
+VGG16_RobotManipulator;
 
 P_PCB_box       = [160, -240,270,-180,0,90,-3]; %PCB      の分類箱の座標
 P_IC_box        = [355,  -100,290,-180,0,85,-3]; %IC       の分類箱の座標
