@@ -28,10 +28,6 @@ caoExt = ctrl.AddExtension('Hand0');
 % hand
 caoExt.Execute('Motor', 1);
 
-% FIX ME
-% この部分のコメントを外すとエラーが出る
-% caoExt.Execute('Unchuck',2);
-
 State = caoExt.Execute('get_BusyState');
 while State~=0
     State = caoExt.Execute('get_BusyState');%チャックの動作チェック
@@ -49,7 +45,7 @@ end
 P1='(236,0,298,-180,0,90,-3)'; 
 rob.Move(1,P1);
 pause(0.2);
-% caoExt.Execute('UnChuck',2);
+caoExt.Execute('UnChuck',2);
 
 
 
